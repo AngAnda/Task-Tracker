@@ -1,8 +1,10 @@
+
 <div class="buttons">
-  <button mat-button (click)="isList = true"> <mat-icon>list</mat-icon> List View</button>
-  <button mat-button (click)="isList = false"> <mat-icon>grid_view</mat-icon> Grid View</button>
+  <button mat-button (click)="isList = false"> <mat-icon>list</mat-icon> List View</button>
+  <button mat-button (click)="isList = true"> <mat-icon>grid_view</mat-icon> Grid View</button>
 </div>
-<!-- another section to render task-grid component based on isList value-->
+
+<router-outlet></router-outlet>
 
 <div *ngIf="!isList">
   <app-task-list [tasks]="tasksParent"></app-task-list>

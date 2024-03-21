@@ -7,13 +7,14 @@ import { TaskCardComponent } from "../task-card/task-card.component"; // Adaugă
 import { TaskListComponent } from '../task-list/task-list.component';
 import {MatIconModule} from '@angular/material/icon';
 import { FilterComponent } from '../filter-component/filter-component.component';
+import { RouterModule } from '@angular/router';
 
   @Component({
     selector: 'tasks-view',
     standalone: true,
     templateUrl: './tasks-view.component.html',
     styleUrl: './tasks-view.component.scss',
-    imports: [TaskGridComponent, CommonModule, TaskCardComponent, TaskListComponent, MatIconModule, FilterComponent]
+    imports: [TaskGridComponent, CommonModule, TaskCardComponent, TaskListComponent, MatIconModule, FilterComponent, RouterModule]
 })
   export class TasksViewComponent {
       tasksParent: Task[] =[ 
