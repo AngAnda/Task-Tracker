@@ -2,11 +2,12 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button'; // Import MatButtonModule
 import { Status } from '../models/Status';
 import { CommonModule } from '@angular/common';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-filter-component',
   standalone: true,
-  imports: [MatButtonModule, CommonModule], // Include MatButtonModule here
+  imports: [MatButtonModule, CommonModule, MatIcon], // Include MatButtonModule here
   templateUrl: './filter-component.component.html',
   styleUrls: ['./filter-component.component.scss']
 })

@@ -8,8 +8,13 @@
         {{task?.description}}
       </p>
     </mat-card-content>
-    <!-- <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions> -->
+    <mat-card-actions>
+      <button mat-icon-button color="warn" (click)="deleteTask(task)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" (click)="editTask(task)">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </mat-card-actions>
+  
   </mat-card>
