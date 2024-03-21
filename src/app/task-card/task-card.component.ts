@@ -10,5 +10,5 @@ import { MatCardModule } from '@angular/material/card';
   styleUrl: './task-card.component.scss'
 })
 export class TaskCardComponent {
-  @Input() task!: Task;
+  @Input() task: Task;
 }

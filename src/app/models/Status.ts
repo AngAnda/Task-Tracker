@@ -1,5 +1,5 @@
 export enum Status {
-    ToDo = "To do",
+    ToDo = "To Do",
     InProgress = "In progress",
     Done="Done",
 }

@@ -2,18 +2,20 @@
   import { TaskGridComponent } from '../task-grid/task-grid.component';
   import { Task } from '../models/task';
   import { Status } from '../models/Status';
-  import { CommonModule } from '@angular/common'; // Adaugă această linie
+  import { CommonModule } from '@angular/common';
+import { TaskCardComponent } from "../task-card/task-card.component"; // Adaugă această linie
+import { TaskListComponent } from '../task-list/task-list.component';
 
 
   @Component({
     selector: 'tasks-view',
     standalone: true,
-    imports: [TaskGridComponent, CommonModule],
     templateUrl: './tasks-view.component.html',
-    styleUrl: './tasks-view.component.scss'
-  })
+    styleUrl: './tasks-view.component.scss',
+    imports: [TaskGridComponent, CommonModule, TaskCardComponent, TaskListComponent]
+})
   export class TasksViewComponent {
-    taskList: Task[] =[ 
+    tasks: Task[] =[ 
       {
       id: '1',
       title: 'Sample Task',
