@@ -1,1 +1,6 @@
-<p>task-list works!</p>
+<app-filter-component ></app-filter-component>
+<div *ngFor="let task of tasks" class="task-item">
+    <div class="task-name">{{ task.title }}</div>
+    <div class="task-description">{{ task.description }}</div>
+    <div class="task-status">{{ task.status }}</div>
+</div>

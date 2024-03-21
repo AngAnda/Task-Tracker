@@ -5,17 +5,18 @@
   import { CommonModule } from '@angular/common';
 import { TaskCardComponent } from "../task-card/task-card.component"; // Adaugă această linie
 import { TaskListComponent } from '../task-list/task-list.component';
-
+import {MatIconModule} from '@angular/material/icon';
+import { FilterComponent } from '../filter-component/filter-component.component';
 
   @Component({
     selector: 'tasks-view',
     standalone: true,
     templateUrl: './tasks-view.component.html',
     styleUrl: './tasks-view.component.scss',
-    imports: [TaskGridComponent, CommonModule, TaskCardComponent, TaskListComponent]
+    imports: [TaskGridComponent, CommonModule, TaskCardComponent, TaskListComponent, MatIconModule, FilterComponent]
 })
   export class TasksViewComponent {
-    tasks: Task[] =[ 
+      tasksParent: Task[] =[ 
       {
       id: '1',
       title: 'Sample Task',
@@ -26,7 +27,7 @@ import { TaskListComponent } from '../task-list/task-list.component';
         id: '1',
         title: 'Sample Task 2',
         description: 'This is a sample description for a task.',
-        status: Status.ToDo, 
+        status: Status.Done, 
       },
       {
         id: '1',
@@ -38,8 +39,9 @@ import { TaskListComponent } from '../task-list/task-list.component';
         id: '1',
         title: 'Sample Task 4',
         description: 'This is a sample description for a task.',
-        status: Status.ToDo, 
+        status: Status.InProgress, 
       }
-
     ];
+
+    isList:boolean = false;
   }

@@ -1,29 +1,13 @@
-<div class="task-columns">
-    <div class="task-column">
-      <h2>To do</h2>
-      <div *ngFor="let task of tasks">
-        <div *ngIf="task.status.toString() === 'To Do'">
-          <app-task-card [task]="task"></app-task-card>
-        </div>
-      </div>
-    </div>
-    
-    <div class="task-column">
-      <h2>In progress</h2>
-      <div *ngFor="let task of tasks">
-        <div *ngIf="task.status.toString() === 'To Do'">
-          <app-task-card [task]="task"></app-task-card>
-        </div>
-      </div>
-    </div>
-  
-    <div class="task-column">
-      <h2>Done</h2>
-      <div *ngFor="let task of tasks">
-        <div *ngIf="task.status.toString() === 'To Do'">
-          <app-task-card [task]="task"></app-task-card>
-        </div>
-      </div>
-    </div>
-  </div>
-  
+<div class="buttons">
+  <button mat-button (click)="isList = true"> <mat-icon>list</mat-icon> List View</button>
+  <button mat-button (click)="isList = false"> <mat-icon>grid_view</mat-icon> Grid View</button>
+</div>
+<!-- another section to render task-grid component based on isList value-->
+
+<div *ngIf="!isList">
+  <app-task-list [tasks]="tasksParent"></app-task-list>
+</div> 
+
+<div *ngIf="isList">
+  <task-grid [tasks]="tasksParent"></task-grid>
+</div>
