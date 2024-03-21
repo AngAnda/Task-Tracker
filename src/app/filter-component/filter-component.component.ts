@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button'; // Import MatButtonModule
 import { Status } from '../models/Status';
 import { CommonModule } from '@angular/common';
@@ -13,12 +13,15 @@ import { CommonModule } from '@angular/common';
 
 export class FilterComponent implements OnInit {
   selectStatus(status: any) {
-    console.log(status)
+    console.log(status)  
+    this.statusSelected.emit(status);
   }
+  
+  @Output() statusSelected: EventEmitter<Status> = new EventEmitter();
     
   statuses = Object.values(Status); // Get the enum values
 
   ngOnInit(): void {
-    // Your initialization code here
+    
   }
 }
