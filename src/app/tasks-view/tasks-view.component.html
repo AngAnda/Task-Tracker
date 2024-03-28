@@ -7,9 +7,9 @@
 <router-outlet></router-outlet>
 
 <div *ngIf="!isList">
-  <app-task-list [tasks]="tasksParent"></app-task-list>
+  <app-task-list></app-task-list>
 </div> 
 
 <div *ngIf="isList">
-  <task-grid [tasks]="tasksParent"></task-grid>
+  <task-grid></task-grid>
 </div>

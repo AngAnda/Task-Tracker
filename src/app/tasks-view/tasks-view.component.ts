@@ -16,33 +16,7 @@ import { RouterModule } from '@angular/router';
     styleUrl: './tasks-view.component.scss',
     imports: [TaskGridComponent, CommonModule, TaskCardComponent, TaskListComponent, MatIconModule, FilterComponent, RouterModule]
 })
-  export class TasksViewComponent {
-      tasksParent: Task[] =[ 
-      {
-      id: '1',
-      title: 'Sample Task',
-      description: 'This is a sample description for a task.',
-      status: Status.ToDo, 
-      },
-      {
-        id: '1',
-        title: 'Sample Task 2',
-        description: 'This is a sample description for a task.',
-        status: Status.Done, 
-      },
-      {
-        id: '1',
-        title: 'Sample Task 3',
-        description: 'This is a sample description for a task.',
-        status: Status.ToDo, 
-      },
-      {
-        id: '1',
-        title: 'Sample Task 4',
-        description: 'This is a sample description for a task.',
-        status: Status.InProgress, 
-      }
-    ];
-
+   export class TasksViewComponent {
+  
     isList:boolean = false;
   }
