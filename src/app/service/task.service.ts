@@ -1,51 +1,47 @@
 import { Injectable } from '@angular/core';
 import { Status } from '../models/Status';
 import { Task } from '../models/task';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
 
-  constructor() { }
+  readonly httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+    })
+  };
 
-  getTasks()
+
+  baseUrl="https://tasksapi20240226164535.azurewebsites.net/api/Tasks" 
+  headers: HttpHeaders | { [header: string]: string | string[]; };
+  constructor(private httpClient:HttpClient) 
+    { }
+
+  getTasks() :Observable<Task[]>
   {
-    return this.tasks;
+    return this.httpClient.get<Task[]>(this.baseUrl, this.httpOptions );
   }
 
-  addTask(newTask: Task) {
-    this.tasks.push(newTask);
-    console.log(this.tasks)
-    return newTask;
+  addTask(newTask: any) {
+    
+    
+    
+    return this.httpClient.post<Task>(this.baseUrl, newTask, { headers: this.headers, responseType: 'text' as 'json' });
   }
 
-  editTask(task: Task): void {
-    let i = this.tasks.findIndex((t) => t.id === task.id);
-    this.tasks[i] = task;
-  }
+  editTask(task: Task) {
+    return this.httpClient.put<Task>(`${this.baseUrl}/${task.id}`, task);
+  }      
 
   deleteTask(id:string) : void{
     let i = this.tasks.findIndex((t) => t.id == id);
     this.tasks = this.tasks.splice(i, 1)
   }
 
-  tasks: Task[] = [
-    {
-      id: '1',
-      title: 'Learn about HTML and SCSS',
-      description: 'Learn the basics concepts about HTML and CSS+SCSS',
-      status: Status.InProgress,
-      assignedTo: 'Andrei',
-    },
-    {
-      id: '2',
-      title: 'Create your first Angular app',
-      description:
-        'Create a new Angular application for managing tasks. You will configure the packages needed for developing the project and then you will define the main components of the application.',
-      status: Status.ToDo,
-      assignedTo: 'Ioana',
-    }
-  ];
+  tasks: Task[];
 
 }

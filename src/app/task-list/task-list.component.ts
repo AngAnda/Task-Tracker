@@ -23,8 +23,9 @@ export class TaskListComponent implements OnInit {
   tasks:Task[];
   
   ngOnInit(): void {
-    this.tasks = this.taskService.getTasks();
-    this.filtredTasks = this.taskService.getTasks()
+
+    this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
+    this.taskService.getTasks().subscribe(tasks => this.filtredTasks = tasks);
   }
 
 deleteTask(_t5: Task) {

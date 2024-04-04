@@ -24,15 +24,21 @@ statusOptions = Object.values(Status); // Presupunând că Status este un enum
 
 onSubmit(){
 
-const task:Task = {
-  id: '3',
-  title: this.taskName,
+const task = {
+  
+  name: this.taskName,
   description: this.taskDescription,
-  status: this.taskStatus,
+  status: Status.Done,
   assignedTo: this.assignedTo,
 }
 
+
 this.taskService.addTask(task)
+      .subscribe(task => {
+        console.log('Task added successfully:', task);
+        this.router.navigate(['/']);
+      });
+
 console.log(this.taskName + this.taskDescription)  
 this.router.navigate(['/']);
 }
